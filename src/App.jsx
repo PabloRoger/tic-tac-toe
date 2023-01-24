@@ -5,6 +5,7 @@ import { Square } from "./Components/Square.jsx";
 import { TURNS } from "./constants.js";
 import { checkWinner, checkEndGame } from "./logic/board.js";
 import { Winner } from "./Components/Winner.jsx";
+import { BoardGame } from "./Components/BoardGame.jsx";
 
 function App() {
 
@@ -38,7 +39,6 @@ function App() {
 
     console.log(newTurn)
 
-
     //revisa si hay ganador
     const newWinner = checkWinner(newBoard)
     if(newWinner){
@@ -60,28 +60,15 @@ function App() {
     <main className="board">
       <h1>Tic Tac Toe</h1>
       <button onClick={resetGame}>Reiniciar</button>
-      <section className="game">
-        {
-          board.map((square, index) => {
-            return (
-              <Square
-                key={index}
-                index={index}
-                updateBoard={updateBoard}
-              >
-                {square}
-              </Square>
-            )
-          })
-        }
-      </section>
+
+      <BoardGame board={board} updateBoard={updateBoard} />
+
       <section className="turn">
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
 
       <Winner winner={winner} resetGame={resetGame} />
-
     </main>
   );
 }

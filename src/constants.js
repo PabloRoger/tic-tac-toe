@@ -13,3 +13,5 @@ export const WINNER_COMBOS = [
   [0, 4, 8],
   [2, 4, 6]
 ]
+
+// TODO: Add a function to check if there is a winner

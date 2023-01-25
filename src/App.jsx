@@ -57,19 +57,24 @@ function App() {
   }
 
   return (
-    <main className="board">
-      <h1>Tic Tac Toe</h1>
-      <button onClick={resetGame}>Reiniciar</button>
+    <div className="App">
+      <header className="Header">
+        <h1>Tic Tac Toe</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+      </header>
 
-      <BoardGame board={board} updateBoard={updateBoard} />
+      <main className="board">
+        <button onClick={resetGame}>Reiniciar</button>
+        <BoardGame board={board} updateBoard={updateBoard} />
 
-      <section className="turn">
-        <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
-        <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
-      </section>
+        <section className="turn">
+          <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
+          <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
+        </section>
 
-      <Winner winner={winner} resetGame={resetGame} />
-    </main>
+        <Winner winner={winner} resetGame={resetGame} />
+      </main>
+    </div>
   );
 }
 
